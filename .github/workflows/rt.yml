@@ -44,6 +44,18 @@ jobs:
           }
           EOF
 
-      - name: Run k6
+      - name: Debug k6 install & env
         run: |
-          k6 run --logformat raw test.js 2>/dev/null
+          echo "Checking k6 binary..."
+          which k6 || true
+          k6 version || true
+          touch /tmp/summary.json
+      
+          echo "TARGET_URL is:"
+          echo "$TARGET_URL"
+      
+      - name: Run k6 (debug)
+        run: |
+          k6 run --loglevel error --logformat raw --summary-export=/tmp/summary.json test.js
+
+
