@@ -56,6 +56,9 @@ jobs:
       
       - name: Run k6 (debug)
         run: |
-          k6 run --loglevel error --logformat raw --summary-export=/tmp/summary.json test.js
+          k6 run \
+            --log-format=raw \
+            --summary-export=/tmp/summary.json \
+            test.js
 
 
