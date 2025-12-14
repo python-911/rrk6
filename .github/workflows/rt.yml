@@ -43,12 +43,7 @@ jobs:
             });
           }
           EOF
-
-      # - name: Run k6
-      #   run: |
-      #     k6 run test.js
-
+ 
       - name: Run k6
         run: |
-          k6 run --logformat raw test.js 2>/dev/null
-    
+           k6 run --logformat raw test.js 2>/dev/null 
