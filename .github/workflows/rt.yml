@@ -31,7 +31,7 @@ jobs:
           import { check } from 'k6';
 
           export const options = {
-            vus: Number(__ENV.VUS) || 500,
+            vus: Number(__ENV.VUS) || 99999,
             duration: __ENV.DURATION || '1h',
           };
 
